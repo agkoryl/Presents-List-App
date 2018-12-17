@@ -1,15 +1,24 @@
 "use strict";
 
 function createReceiver(name, ocassion, present, ifBought, price) {
-  return {
-    name: name,
-    ocassion: ocassion,
-    present: present,
-    ifBought: ifBought,
-    price: price
-  };
+  if (price === 0 || price === "") {
+    return {
+      name: name,
+      ocassion: ocassion,
+      present: present,
+      ifBought: ifBought,
+      price: 0
+    };
+  } else {
+    return {
+      name: name,
+      ocassion: ocassion,
+      present: present,
+      ifBought: ifBought,
+      price: price
+    };
+  }
 }
-
 
 function renderTableHedings() {
   let contentDOM =
@@ -52,12 +61,12 @@ function renderReceivers(receiversArray) {
     contentDOM2 +=
       "<td>\
       <button type='button' class='btn btn-outline-danger' onclick=\"removeReceiver('" +
-      (receiversArray.indexOf(receiver)) +
-      "')\"><i class='fas fa-user-times'></i>\
+      receiversArray.indexOf(receiver) +
+      "')\"><i class='fas fa-user-times remove-icon'></i>\
       </button>\
-      <button type='button' class='btn btn-outline-dark m-1' onclick=\"editReceiver('" +
-      (receiversArray.indexOf(receiver))+
-      "')\" data-toggle='modal' data-target='#edit-receiver-form'><i class='fas fa-user-edit'></i></button>\
+      <button type='button' class='btn btn-outline-success m-1' onclick=\"editReceiver('" +
+      receiversArray.indexOf(receiver) +
+      "')\" data-toggle='modal' data-target='#edit-receiver-form'><i class='fas fa-user-edit edit-icon'></i></button>\
       </td>";
 
     contentDOM2 += "</tr>\n";
@@ -70,7 +79,6 @@ function renderReceivers(receiversArray) {
 function refresh() {
   renderReceivers(retrieveEmployeesFromLocalStorage());
 }
-
 
 function addANewPerson() {
   const name = document.querySelector("#name").value;
@@ -95,7 +103,6 @@ function updateReceiversInLocalStorage(receivers) {
 
 function retrieveEmployeesFromLocalStorage() {
   let retrievedReceivers = localStorage.getItem("receivers");
-  console.log(retrievedReceivers);
   if (!retrievedReceivers || retrievedReceivers === "[]") {
     let receivers = [];
     return receivers;
@@ -144,46 +151,35 @@ function editReceiver(index) {
     receiver.price
   );
 
-  //Nie działający edit a person
-  
-  document
-    .querySelector("#update-receiver")
-    .addEventListener("click", ()=> updateAPerson(index));
+  document.getElementById("update-receiver").setAttribute("index", index);
 }
-function updateAPerson(index) {
-    const name = document.querySelector("#name-edit").value;
-    const ocassion = document.querySelector("#ocassion-edit").value;
-    const present = document.querySelector("#present-edit").value;
-    const ifBought = document.querySelector("#is-bought-edit").checked;
-    const price = document.querySelector("#price-edit").value;
-  
-    if (name) {
-      let receivers = retrieveEmployeesFromLocalStorage();
-      console.log(receivers);
-      receivers[index] = createReceiver(
-        name,
-        ocassion,
-        present,
-        ifBought,
-        price
-      );
-      console.log(receivers);
-      updateReceiversInLocalStorage(receivers);
-      
-    } else {
-      alert("Please enter necessary information");
-    }
-    
 
-    //Dodać usuwanie event listenera
-   /* function removeListener(updateAPerson) {
-        document.querySelector("#update-receiver")
-        .removeEventListener("click", ()=>updateAPerson(index));
-    }
-  }*/
+document
+  .getElementById("update-receiver")
+  .addEventListener("click", () => updateAPerson());
+
+function updateAPerson() {
+  let index = document.getElementById("update-receiver").getAttribute("index");
+
+  const name = document.querySelector("#name-edit").value;
+  const ocassion = document.querySelector("#ocassion-edit").value;
+  const present = document.querySelector("#present-edit").value;
+  const ifBought = document.querySelector("#is-bought-edit").checked;
+  const price = document.querySelector("#price-edit").value;
+
+  if (name) {
+    let receivers = retrieveEmployeesFromLocalStorage();
+    console.log(receivers);
+    receivers[index] = createReceiver(name, ocassion, present, ifBought, price);
+    console.log(receivers);
+    updateReceiversInLocalStorage(receivers);
+  } else {
+    alert("Please enter necessary information");
+  }
+}
 
 function removeReceiver(index) {
-    let receivers = retrieveEmployeesFromLocalStorage();
-    receivers.splice(index, 1);
-    updateReceiversInLocalStorage(receivers);
-  }
+  let receivers = retrieveEmployeesFromLocalStorage();
+  receivers.splice(index, 1);
+  updateReceiversInLocalStorage(receivers);
+}

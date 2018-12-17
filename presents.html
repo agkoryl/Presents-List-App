@@ -22,19 +22,21 @@
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" type="text/css" href="presents.css"/>
 
     <title>Presents</title>
   </head>
-  <body>
+  <body class="sky">
+    <div class="list-container">
     <div class="container">
-      <h2 class="m-3 text-center">Christmas presents</h2>
+      <h2 class="m-3 text-center my-h2">Christmas presents</h2>
       <div class="m-3">
-        <button type="button" class="btn btn-primary m-1" id="refresh">
+        <button type="button" class="btn m-1 refresh-button" id="refresh">
           <i class="fas fa-sync-alt"></i>
         </button>
         <button
           type="button"
-          class="btn btn-success m-1"
+          class="btn m-1 add-receiver"
           data-toggle="modal"
           data-target="#new-employee-form"
           id="open-form"
@@ -61,6 +63,7 @@
         </table>
       </div>
     </div>
+  </div>
 
     <div
       class="modal fade"
@@ -248,6 +251,7 @@
 
     <!-- Optional JavaScript -->
     <script src="presents.js"></script>
+    <script src="snow.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
