@@ -45,7 +45,6 @@ function renderReceivers(receiversArray) {
       "<tr>\n<th scope='row'>" +
       (receiversArray.indexOf(receiver) + 1) +
       "</th>";
-    console.log(receiver);
     const employeeValues = Object.values(receiver);
 
     employeeValues.forEach(function(value) {
@@ -169,9 +168,7 @@ function updateAPerson() {
 
   if (name) {
     let receivers = retrieveEmployeesFromLocalStorage();
-    console.log(receivers);
     receivers[index] = createReceiver(name, ocassion, present, ifBought, price);
-    console.log(receivers);
     updateReceiversInLocalStorage(receivers);
   } else {
     alert("Please enter necessary information");
