@@ -6,7 +6,7 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+      />
 
     <!-- Bootstrap CSS -->
     <link
@@ -14,56 +14,56 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
-    />
+      />
 
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
       crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="presents.css"/>
+      />
+    <link rel="stylesheet" type="text/css" href="presents.css" />
 
     <title>Presents</title>
   </head>
-  <body class="sky">
+  <body>
+    <div class="sky"></div>
     <div class="list-container">
-    <div class="container">
-      <h2 class="m-3 text-center my-h2">Christmas presents</h2>
-      <div class="m-3">
-        <button type="button" class="btn m-1 refresh-button" id="refresh">
-          <i class="fas fa-sync-alt"></i>
-        </button>
-        <button
-          type="button"
-          class="btn m-1 add-receiver"
-          data-toggle="modal"
-          data-target="#new-employee-form"
-          id="open-form"
-        >
-          <i class="fas fa-plus"></i> Add a new receiver
-        </button>
-      </div>
       <div class="container">
-        <table class="table">
-          <thead>
-            <tr id="table-keys"></tr>
-          </thead>
-          <tbody id="table-data"></tbody>
-          <tfoot>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>Sum:</td>
-              <td id="sum"></td>
-            </tr>
-          </tfoot>
-        </table>
+        <h2 class="m-3 text-center my-h2">Christmas presents</h2>
+        <div class="m-3">
+          <button type="button" class="btn m-1 refresh-button" id="refresh">
+            <i class="fas fa-sync-alt"></i>
+          </button>
+          <button
+            type="button"
+            class="btn m-1 add-receiver"
+            data-toggle="modal"
+            data-target="#new-employee-form"
+            id="open-form">
+            <i class="fas fa-plus"></i> Add a new receiver
+          </button>
+        </div>
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr id="table-keys"></tr>
+            </thead>
+            <tbody id="table-data"></tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Sum:</td>
+                <td id="sum"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
 
     <div
       class="modal fade"
@@ -71,8 +71,7 @@
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -83,8 +82,7 @@
               type="button"
               class="close"
               data-dismiss="modal"
-              aria-label="Close"
-            >
+              aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -97,7 +95,7 @@
                   class="form-control"
                   id="name"
                   placeholder="Enter your name"
-                />
+                  />
               </div>
               <div class="form-group">
                 <label for="last-name">Ocassion</label>
@@ -106,7 +104,7 @@
                   class="form-control"
                   id="ocassion"
                   placeholder="Enter ocassion"
-                />
+                  />
               </div>
               <div class="form-group">
                 <label for="age">Present</label>
@@ -115,14 +113,14 @@
                   class="form-control"
                   id="present"
                   placeholder="What present?"
-                />
+                  />
               </div>
               <div class="form-check">
                 <input
                   type="checkbox"
                   class="form-check-input"
                   id="is-bought"
-                />
+                  />
                 <label class="form-check-label" for="is-bought">Bought</label>
               </div>
               <div class="form-group">
@@ -132,22 +130,20 @@
                   class="form-control"
                   id="price"
                   placeholder="How much was it?"
-                />
+                  />
               </div>
               <div class="modal-footer">
                 <button
                   type="button"
                   class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
+                  data-dismiss="modal">
                   Close
                 </button>
                 <button
                   type="button"
                   class="btn btn-success"
                   data-dismiss="modal"
-                  id="add-receiver"
-                >
+                  id="add-receiver">
                   Add
                 </button>
               </div>
@@ -163,8 +159,7 @@
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -175,8 +170,7 @@
               type="button"
               class="close"
               data-dismiss="modal"
-              aria-label="Close"
-            >
+              aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -189,7 +183,7 @@
                   class="form-control"
                   id="name-edit"
                   placeholder="Enter your name"
-                />
+                  />
               </div>
               <div class="form-group">
                 <label for="ocassion-edit">Ocassion</label>
@@ -198,7 +192,7 @@
                   class="form-control"
                   id="ocassion-edit"
                   placeholder="Enter ocassion"
-                />
+                  />
               </div>
               <div class="form-group">
                 <label for="present-edit">Present</label>
@@ -207,14 +201,14 @@
                   class="form-control"
                   id="present-edit"
                   placeholder="What present?"
-                />
+                  />
               </div>
               <div class="form-check">
                 <input
                   type="checkbox"
                   class="form-check-input"
                   id="is-bought-edit"
-                />
+                  />
                 <label class="form-check-label" for="is-bought-edit">Bought</label>
               </div>
               <div class="form-group">
@@ -224,22 +218,20 @@
                   class="form-control"
                   id="price-edit"
                   placeholder="How much was it?"
-                />
+                  />
               </div>
               <div class="modal-footer">
                 <button
                   type="button"
                   class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
+                  data-dismiss="modal">
                   Close
                 </button>
                 <button
                   type="button"
                   class="btn btn-success"
                   data-dismiss="modal"
-                  id="update-receiver"
-                >
+                  id="update-receiver">
                   Save changes
                 </button>
               </div>
@@ -257,17 +249,14 @@
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
       integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
   </body>
 </html>
