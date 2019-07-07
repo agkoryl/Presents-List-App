@@ -1,6 +1,6 @@
 # Presents-List-App
 A simple project that should be written in ES5 only. 
-An app should enable: 
+An app should enable for: 
 - creating a list of presents' receivers
 - editing existing receivers
 - deleting existing receivers 
